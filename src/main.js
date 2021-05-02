@@ -10,7 +10,12 @@ import './assets/fonts/iconfont.css'
 import axios from 'axios'
 
 axios.defaults.baseURL='http://timemeetyou.com:8889/api/private/v1/'
+axios.interceptors.request.use(config=>{
+  config.headers.Authorization=window.sessionStorage.getItem('token')
 
+  // 最后必须返回config，固定写法
+  return config
+})
 Vue.prototype.$http=axios;
 
 
