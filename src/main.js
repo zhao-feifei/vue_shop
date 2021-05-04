@@ -8,13 +8,21 @@ import './assets/css/global.css'
 //导入字体图标
 import './assets/fonts/iconfont.css'
 import axios from 'axios'
+import TreeTable from 'vue-table-with-tree-grid'
 
 axios.defaults.baseURL='http://timemeetyou.com:8889/api/private/v1/'
+axios.interceptors.request.use(config=>{
+  config.headers.Authorization=window.sessionStorage.getItem('token')
 
+  // 最后必须返回config，固定写法
+  return config
+})
 Vue.prototype.$http=axios;
 
 
 Vue.config.productionTip = false
+
+Vue.component('tree-table',TreeTable)
 
 new Vue({
   router,
