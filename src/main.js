@@ -10,7 +10,8 @@ import './assets/fonts/iconfont.css'
 import axios from 'axios'
 import TreeTable from 'vue-table-with-tree-grid'
 
-axios.defaults.baseURL='http://timemeetyou.com:8889/api/private/v1/'
+axios.defaults.baseURL='http://www.ysqorz.top:8888/api/private/v1/'
+// 'http://timemeetyou.com:8889/api/private/v1/'
 axios.interceptors.request.use(config=>{
   config.headers.Authorization=window.sessionStorage.getItem('token')
 
